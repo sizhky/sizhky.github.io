@@ -1,0 +1,23 @@
+# Permalinks
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
+relative_permalinks: false
+
+# Setup
+title:               Flavors of a Nerd
+tagline:             'a glob of incoherent, unanticipated blabber'
+description:         "A reserved space to show my views, progress and checkpoints that relate to technical, spiritual and artsy stuff I do."
+url:                 http://sizhky.github.io
+baseurl:             ''
+paginate:            5
+
+# About/contact
+author:
+  name:              Yeshwanth
+  url:               https://twitter.com/sizhky
+  email:             1992chinna@gmail.com
+
+# Custom vars
+version:             1.0.0
+gems: [jekyll-paginate]
