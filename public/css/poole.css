@@ -275,10 +275,16 @@ tbody tr:nth-child(odd) th {
   margin-bottom: 1rem;
   padding: 1rem;
   color: #717171;
-  background-color: #f9f9f9;
+  background-color: #e4e4e4;
 }
 
-
+.quote {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  color: #717171;
+  background-color: #e4e4e4;
+  text-align: justify;
+}
 /*
  * Container
  *
