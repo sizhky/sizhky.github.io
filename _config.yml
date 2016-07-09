@@ -11,7 +11,7 @@ description:         "A reserved space to show my views, progress and checkpoint
 url:                 http://sizhky.github.io
 baseurl:             ''
 paginate:            5
-
+show_drafts:          true
 # About/contact
 author:
   name:              Yeshwanth
