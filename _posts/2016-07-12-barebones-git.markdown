@@ -13,7 +13,7 @@ This post is just for that, to de-mistify what a good tool Git is and how easy i
 Git is a version control software, created by [Linus Torvalds](https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds), the founder of Linux. [Github](github.com), on the other hand is a neat platform to share and store code along with all the goodness of git. Github, is by default, a free platform at the cost of hosting the contents visible to the public. There's a subscription service to have propitiatory projects stored online in all secrecy. Even though Git can seamlessly integrate with Github, it is however, also compatible with other code sharing platforms or just any location for that matter (ftps and shared networks, included)
 
 ## Secondly...
-It's all about practice. Let's dedicate this section to setting a something to restore backups without copy-pasting a single file.
+It's all about practice. Let's dedicate this section to create a setup, to restore backups, without copy-pasting a single file.
 
 ### Let's start setting up in an empty folder (I'll name it gittut)
 
