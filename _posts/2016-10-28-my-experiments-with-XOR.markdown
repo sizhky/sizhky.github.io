@@ -35,7 +35,7 @@ Why can't it fit four points? Is Andrew Ng wrong when he [claimed](https://www.c
 
 To dig deeper into this I created a 3D graph of y vs (x1,x2) where z-axis is y, the output of our simple MLP. And depending on the weights the MLP will have a different linear separators and heights for each plateau. 
 
-![](/assets/xor/input output of a simple MLP.bmp)
+![](/assets/xor/input output of a simple mlp.bmp)
 <div class="caption">There are four plateaus for a simple MLP</div>
 
 The interesting observation is that a pair of plateaus on the opposite corners necessarily have highest and lowest z value. And this actually means a simple MLP can **never** fit an XOR gate since the ideal gate should have the opposite quadrants on same heights. This got me confused. Where does Andrew Ng's claim fit into the picture? The answer is, the weights were built to fit the data. And this needn't happen with random initializations.
