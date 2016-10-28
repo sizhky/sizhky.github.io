@@ -11,7 +11,6 @@ description:         "A reserved space to show my views, progress and checkpoint
 url:                 http://sizhky.github.io/
 baseurl:             
 paginate:            2
-#paginate_path: "/blog/page:num/"
 show_drafts:         true
 # About/contact
 author:
@@ -21,7 +20,7 @@ author:
 
 # Custom vars
 version:             1.0.0
-gems: [jekyll-paginate]
+gems: [jekyll-paginate, jekyll-picture-tag]
 
 # Conversion
 markdown:    kramdown
