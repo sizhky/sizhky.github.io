@@ -36,7 +36,7 @@ First line, nothing more!!
 ```
 
 ![on my waaaay!](/assets/gittut/initialized_folder.jpg)
-*the current folder would look like this*
+<div class="caption">the current folder would look like this...</div>
 
 Git still wouldn't know that something new has been added. Technically, it hasn't started *tracking* any files. 
 

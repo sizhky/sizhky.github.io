@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Flavours of a Nerd &middot; a glob of incoherent, unanticipated blabber
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/favicon.png">
+  <link rel="shortcut icon" href="/public/favicon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>A reserved space to show my views, progress and checkpoints that relate to technical, spiritual and artsy stuff I do.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2016. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Flavours of a Nerd</a>
+            <small>a glob of incoherent, unanticipated blabber</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="posts">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/random/2016/07/something.html">
+        Something
+      </a>
+    </h1>
+
+    <span class="post-date">15 Jul 2016</span>
+
+    <h1 id="do-you-wanna-know">Do you wanna know?</h1>
+
+<h2 id="random-random">Random random</h2>
+
+<h3 id="more-randomness">More randomness</h3>
+
+<p>What is the meaning of all this?</p>
+
+  </div>
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="/posts/2016/07/barebones-git.html">
+        Barebones Git
+      </a>
+    </h1>
+
+    <span class="post-date">11 Jul 2016</span>
+
+    <p>Many people I know confuse Git with Github, and probably don’t have a good idea of how powerful version control is. I guess, half the trouble with it is the steepness of the learning curve, not to mention how wonky even the concept of version control is. I’ve had my own million doubts in using Git and never knew where to start. Even if I did start, I’d have given up on the second day not understanding why certain thing is the way it is.</p>
+
+<p>This post is just for that, to de-mistify what a good tool Git is and how easy it is to integrate into the workflow and, really, master version control with only a handful of commands. I hope the days of copy-pasting a file in the name of ‘backup’ are a days of the past.</p>
+
+<h2 id="firstly">Firstly…</h2>
+<p>Git is a version control software, created by <a href="https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds">Linus Torvalds</a>, the founder of Linux. <a href="github.com">Github</a>, on the other hand is a neat platform to share and store code along with all the goodness of git. Github, is by default, a free platform at the cost of hosting the contents visible to the public. There’s a subscription service to have propitiatory projects stored online in all secrecy. Even though Git can seamlessly integrate with Github, it is however, also compatible with other code sharing platforms or just any location for that matter (ftps and shared networks, included)</p>
+
+<h2 id="secondly">Secondly…</h2>
+<p>It’s all about practice. Let’s dedicate this section to create a setup, to restore backups, without copy-pasting a single file.</p>
+
+<h3 id="lets-start-setting-up-in-an-empty-folder-ill-name-it-gittut">Let’s start setting up in an empty folder (I’ll name it gittut)</h3>
+
+<p>The magic starts with initializing a Git repository</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\&gt;mkdir gittut
+
+C:\...\&gt;cd gittut
+
+C:\...\gittut&gt;git init
+</code></pre>
+</div>
+
+<p>It means that the folder is ready for some version control action! The only visible difference would be that there is be .git folder created in the directory which is hidden by default. The takeaway point is that any location containing a .git folder means one or more (generally all) files have versions which Git is handling. Let’s create a text file named ‘my.txt’.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;more my.txt
+First line, nothing more!!
+
+</code></pre>
+</div>
+
+<p><img src="/assets/gittut/initialized_folder.jpg" alt="on my waaaay!" />
+<em>the current folder would look like this</em></p>
+
+<p>Git still wouldn’t know that something new has been added. Technically, it hasn’t started <em>tracking</em> any files.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;git status
+On branch master
+
+Initial commit
+
+Untracked files:
+  (use "git add &lt;file&gt;..." to include in what will be committed)
+
+        my.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+</code></pre>
+</div>
+
+<p>Git status gives, well, the current status of the folder.</p>
+
+<h3 id="the-way-to-start-tracking-a-file-is">The way to start tracking a file is</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;git add my.txt
+
+C:\...\gittut&gt;git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+        new file:   my.txt
+</code></pre>
+</div>
+
+<p>To add all the files in a folder, one would <code class="highlighter-rouge">git add -A</code></p>
+
+<h3 id="lets-see-what-happens-after-editing-the-text-file">Let’s see what happens after editing the text file…</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;more my.txt
+First line, nothing more!! :3
+
+Second line... ADDED!
+
+</code></pre>
+</div>
+<p>There was a modification in the first line ‘:3’ and a second line was added.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;git status
+On branch master
+
+Initial commit
+
+Changes to be committed:
+  (use "git rm --cached &lt;file&gt;..." to unstage)
+
+        new file:   my.txt
+
+Changes not staged for commit:
+  (use "git add &lt;file&gt;..." to update what will be committed)
+  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
+
+        modified:   my.txt
+</code></pre>
+</div>
+
+<p>Git notifies the modification that happend with respect to the state when a file was added. This is because, the moment we <code class="highlighter-rouge">add</code> a file (to what is called as a stage), it freezes the state of the file for a possible commit. And any modifications after <code class="highlighter-rouge">add</code> -ing a file will not be committed in the future. <code class="highlighter-rouge">add</code> functions as a soft commit where if a code goes awry after modification, one could always go back to the state when it was <code class="highlighter-rouge">add</code> -ed. <code class="highlighter-rouge">git checkout my.txt</code> would essentially revert back the text file to the state when it was added for staging.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;git checkout my.txt
+
+C:\...\gittut&gt;more my.txt
+First line, nothing more!!
+
+</code></pre>
+</div>
+
+<p>And this way, it is always possible to revert a dysfunctional code back to a working state (given you <code class="highlighter-rouge">add</code> the file to stage everytime a code works just fine). There’s your backup isn’t it!?</p>
+
+<hr />
+
+<p>Of course! We’ve just scratched the surface of the shell. We barely tickled the tentacles and hardly glanced at the ginormous gizmo, which is Git. There’s more to git than simple <code class="highlighter-rouge">add</code> command.</p>
+
+  </div>
+  
+</div>
+
+<div class="pagination">
+  
+    <a class="pagination-item older" href="/page2">Older</a>
+  
+  
+    <span class="pagination-item newer">Newer</span>
+  
+</div>
+
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>
