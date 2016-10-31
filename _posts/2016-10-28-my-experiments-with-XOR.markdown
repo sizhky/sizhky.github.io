@@ -5,7 +5,8 @@ date:   2016-10-28 13:48:42 +0530
 categories: posts
 ---
 
-Historically, almost every non-tree based ML algorithm created only linear separable spaces, and the XOR simply cannot be modeled with them. Enter [the multilayerd perceptron](https://www.coursera.org/learn/machine-learning/lecture/solUx/examples-and-intuitions-ii) and everything changed. With an elegant chaining of linear combinations of inputs we can obtain almost any number of linear decision boundaries. So I thought I'd bulid a robust XOR gate using a simple MLP
+Historically, almost every non-tree based ML algorithm created only linear separable spaces, and the XOR simply cannot be modeled with them. Enter [the multilayerd perceptron](https://www.coursera.org/learn/machine-learning/lecture/solUx/examples-and-intuitions-ii) (MLP) and everything changed. With an elegant chaining of linear combinations of inputs we can obtain almost any number of linear decision boundaries. So I thought I'd bulid a robust XOR gate using a simple MLP
+<!--more-->
 
 | x<sub>1</sub>|x<sub>2</sub> | y |
 |:-:|:-:|:-:|
@@ -24,7 +25,7 @@ The goal was to create a network which can learn these four points with as minim
 To fit four points using a neural network is simple. Right? 
 
 ![](/assets/xor/zero loss on simple nn.bmp)
-<div class = 'caption'>Loss on a XOR data. Done and dusted! </div>
+<div class = 'caption'>Loss on an XOR data. Done and dusted! </div>
 
 It turns out, no. While it did classify correctly most of the times, there were instances when the network simply wouldn't converge. 
 

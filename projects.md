@@ -13,7 +13,7 @@ title: Projects
         </h1>
         <span class="post-date">{{ post.date | date_to_string }}</span>
 
-          {{ post.content }}
+          {{ post.excerpt }}...
 
       </div>
   {% endfor %}

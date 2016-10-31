@@ -6,7 +6,7 @@ categories: posts
 ---
 
 It's been ages since I wanted to get hold of a blog. Not blogpost or Wordpress or any of those things. I wanted something under my own control. I've found it! This is it! #2muchOptimism
-
+<!--more-->
 So here's a bird's eye view on [how it's done][youtube-tutorial]. That is, to setup a barebones structure for a website and have it running on a local server. Github is a great place to host the blog (it's free!) and show the world what you know (what do you know, really?). Well, there are important things to nail, now that the foundation has been laid. Markdown, more jekyll, more themes and more, you know, writing. I guess this will be a good start. Maybe, the next post would be an actual tutorial (instead of the just a youtube link) to get a blog running on github, barebones style.
 
 This will be it for the blog post! I'll just leave the default text hanging around.

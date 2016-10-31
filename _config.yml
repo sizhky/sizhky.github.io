@@ -17,7 +17,7 @@ author:
   name:              Yeshwanth
   url:               https://twitter.com/sizhky
   email:             1992chinna@gmail.com
-
+excerpt_separator: <!--more-->
 # Custom vars
 version:             1.0.0
 gems: [jekyll-paginate]
