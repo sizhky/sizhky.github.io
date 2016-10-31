@@ -7,7 +7,7 @@ relative_permalinks: false
 # Setup
 title:               Flavours of a Nerd
 tagline:             'Human and Machine Learning'
-description:         "A reserved space to show my views, progress and checkpoints that relate to technical, spiritual and artsy stuff I do."
+description:         "FoaN is a space dedicated for simple experiments and insights. I occasionally give useful tutorials and my personal opinions on life and stuff."
 url:                 http://sizhky.github.io/
 baseurl:             
 paginate:            3

@@ -9,6 +9,7 @@ The concept is pretty self explanatory - Spokes around a wheel need to be 'pulle
 
 <!--more-->
 ![][image1]
+<div class = 'caption'>Home Page</div>
 
 The rules are generated randomly at every level and keeps the game dynamic and repeater friendly. However the main bug is to be that the rules, being absolutely random, can generate impossible levels to solve and that pretty much ruins the streak.
 That said I am figuring out the mathematics underneath the impossibility of a level and make sure the code only generates those that can be solved. You are free to download the source-code and play with it yourself - the entire game is a single .html file.
