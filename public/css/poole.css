@@ -231,7 +231,7 @@ img {
   display: block;
   max-width: 100%;
   margin: auto;
-  border-radius: 5px;
+  border-radius: 25px;
 }
 
 /* Tables */
@@ -442,6 +442,7 @@ a.pagination-item:hover {
   font-size: small;
   text-align: center;
   margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .postscribble{
