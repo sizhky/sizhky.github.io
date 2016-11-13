@@ -448,3 +448,9 @@ a.pagination-item:hover {
 .postscribble{
   font-size: small;
 }
+
+.side-note{
+  text-align: right;
+  font-size: 0.8em;
+  font-style: italic;
+}
