@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Flavours of a Nerd</title>
- <link href="http://sizhky.github.io//atom.xml" rel="self"/>
- <link href="http://sizhky.github.io//"/>
- <updated>2016-07-15T16:30:59+05:30</updated>
- <id>http://sizhky.github.io/</id>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <link href="http://localhost:4000/"/>
+ <updated>2017-04-21T18:38:17+05:30</updated>
+ <id>http://localhost:4000</id>
  <author>
    <name>Yeshwanth</name>
    <email>1992chinna@gmail.com</email>
@@ -13,29 +13,128 @@
 
  
  <entry>
-   <title>Something</title>
-   <link href="http://sizhky.github.io//random/2016/07/something.html"/>
-   <updated>2016-07-15T16:30:59+05:30</updated>
-   <id>http://sizhky.github.io//random/2016/07/something</id>
-   <content type="html">&lt;h1 id=&quot;do-you-wanna-know&quot;&gt;Do you wanna know?&lt;/h1&gt;
+   <title>XOR using MultiLayered Perceptron</title>
+   <link href="http://localhost:4000/posts/2016/10/my-experiments-with-XOR-Copy.html"/>
+   <updated>2016-10-28T13:48:42+05:30</updated>
+   <id>http://localhost:4000/posts/2016/10/my-experiments-with-XOR - Copy</id>
+   <content type="html">&lt;p&gt;Historically, almost every non-tree based ML algorithm created only linear separable spaces, and the XOR simply cannot be modeled with them. Enter &lt;a href=&quot;https://www.coursera.org/learn/machine-learning/lecture/solUx/examples-and-intuitions-ii&quot;&gt;the multilayerd perceptron&lt;/a&gt; (MLP) and everything changed. With an elegant chaining of linear combinations of inputs we can obtain almost any number of linear decision boundaries. So I thought I’d bulid a robust XOR gate using a simple MLP
+&lt;!--more--&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;random-random&quot;&gt;Random random&lt;/h2&gt;
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;x&lt;sub&gt;1&lt;/sub&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;x&lt;sub&gt;2&lt;/sub&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;y&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
 
-&lt;h3 id=&quot;more-randomness&quot;&gt;More randomness&lt;/h3&gt;
+&lt;div class=&quot;caption&quot;&gt;Truth table of XOR &lt;/div&gt;
 
-&lt;p&gt;What is the meaning of all this?&lt;/p&gt;
+&lt;p&gt;The goal was to create a network which can learn these four points with as minimal setup as possible. And that would be one with one layer each for input, hidden and output nodes where the hidden layer has 2 neurons only.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/xor/nn architecture.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;Simple MLP! &lt;/div&gt;
+
+&lt;p&gt;To fit four points using a neural network is simple. Right?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/xor/zero loss on simple nn.bmp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;Loss on an XOR data. Done and dusted! &lt;/div&gt;
+
+&lt;p&gt;It turns out, no. While it did classify correctly most of the times, there were instances when the network simply wouldn’t converge.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/xor/loss on simple nn.bmp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;Why you no converge to zero? &lt;/div&gt;
+
+&lt;p&gt;Why can’t it fit four points? Is Andrew Ng wrong when he &lt;a href=&quot;https://www.coursera.org/learn/machine-learning/lecture/solUx/examples-and-intuitions-ii&quot;&gt;claimed&lt;/a&gt; that a simple MLP can predict XOR? The answer: It depends on the way the weights are initialized. This will dictate, at which local minimum is the network going to converge.&lt;/p&gt;
+
+&lt;p&gt;To dig deeper into this I created a 3D graph of y vs (x&lt;sub&gt;1&lt;/sub&gt;,x&lt;sub&gt;2&lt;/sub&gt;) where z-axis is y, the output of our simple MLP. And depending on the weights the MLP will have a different linear separators and heights for each plateau.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/xor/input output of a simple mlp.bmp&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;There are four plateaus for a simple MLP&lt;/div&gt;
+
+&lt;p&gt;The interesting observation is that a pair of plateaus on the opposite corners necessarily have highest and lowest z value. And this actually means a simple MLP can &lt;strong&gt;never&lt;/strong&gt; fit an XOR gate since the ideal gate should have the opposite quadrants on same heights. This got me confused. Where does Andrew Ng’s claim fit into the picture? The answer is, the weights were built to fit the data. And this needn’t happen with random initializations.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/xor/special weights.gif&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;Notice how (0,1) and (1,0) are in the valley while (0,0) and (1,1) are on the plateaus&lt;/div&gt;
+
+&lt;p&gt;This made me rethink my model. XOR is not about fitting four points, but working with the entire cartesian plane.&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;x&lt;sub&gt;1&lt;/sub&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;x&lt;sub&gt;2&lt;/sub&gt;&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;y&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;negative&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;negative&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;positive&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;negative&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;negative&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;positive&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;positive&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;positive&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;0&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;div class=&quot;caption&quot;&gt;Modified XOR&lt;/div&gt;
+
+&lt;p&gt;And this way, I generated thousands of pairs of real numbers (x&lt;sub&gt;1&lt;/sub&gt;, x&lt;sub&gt;2&lt;/sub&gt;) each between -10 and 10 and their corresponding y values. Almost every training instance gave only 85% accuracy.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/xor/ideal vs computed.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;Ideal XOR vs Computed. &lt;br /&gt;The red circles on the right show the errors which a simple 2 node MLP cannot calculate.&lt;/div&gt;
+
+&lt;p&gt;This once again shows that a simple MLP &lt;strong&gt;cannot&lt;/strong&gt; fit XOR data. The workaround is to increase the number of nodes in the hidden layer, and this in turn creates multiple plateaus which will only fit the data and not generalize&lt;/p&gt;
+
 </content>
  </entry>
  
  <entry>
    <title>Barebones Git</title>
-   <link href="http://sizhky.github.io//posts/2016/07/barebones-git.html"/>
+   <link href="http://localhost:4000/posts/2016/07/barebones-git.html"/>
    <updated>2016-07-11T18:43:38+05:30</updated>
-   <id>http://sizhky.github.io//posts/2016/07/barebones-git</id>
-   <content type="html">&lt;p&gt;Many people I know confuse Git with Github, and probably don’t have a good idea of how powerful version control is. I guess, half the trouble with it is the steepness of the learning curve, not to mention how wonky even the concept of version control is. I’ve had my own million doubts in using Git and never knew where to start. Even if I did start, I’d have given up on the second day not understanding why certain thing is the way it is.&lt;/p&gt;
-
-&lt;p&gt;This post is just for that, to de-mistify what a good tool Git is and how easy it is to integrate into the workflow and, really, master version control with only a handful of commands. I hope the days of copy-pasting a file in the name of ‘backup’ are a days of the past.&lt;/p&gt;
-
+   <id>http://localhost:4000/posts/2016/07/barebones-git</id>
+   <content type="html">&lt;p&gt;Many people I know confuse Git with Github, and probably don’t have a good idea of what version control is. I guess, half the trouble with lies in the steep learning curve, not to mention how new and bizzare some concepts are. I’ve had my own million doubts before using Git and never knew where to start. Even if I did start, I’d have had given up on the second day not understanding why certain thing is the way it is.&lt;br /&gt;
+This post is just for that, to de-mistify what a good tool Git is and how easy it is to integrate into the workflow and, really, master version controlling with only a handful of commands. I hope the days of copy-pasting a file in the name of ‘backup’ are a days of the past.
+&lt;!--more--&gt;&lt;/p&gt;
 &lt;h2 id=&quot;firstly&quot;&gt;Firstly…&lt;/h2&gt;
 &lt;p&gt;Git is a version control software, created by &lt;a href=&quot;https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds&quot;&gt;Linus Torvalds&lt;/a&gt;, the founder of Linux. &lt;a href=&quot;github.com&quot;&gt;Github&lt;/a&gt;, on the other hand is a neat platform to share and store code along with all the goodness of git. Github, is by default, a free platform at the cost of hosting the contents visible to the public. There’s a subscription service to have propitiatory projects stored online in all secrecy. Even though Git can seamlessly integrate with Github, it is however, also compatible with other code sharing platforms or just any location for that matter (ftps and shared networks, included)&lt;/p&gt;
 
@@ -62,8 +161,8 @@ First line, nothing more!!
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 
-&lt;p&gt;&lt;img src=&quot;/assets/gittut/initialized_folder.jpg&quot; alt=&quot;on my waaaay!&quot; /&gt;
-&lt;em&gt;the current folder would look like this&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/gittut/initialized_folder.jpg&quot; alt=&quot;on my waaaay!&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;the current folder would look like this...&lt;/div&gt;
 
 &lt;p&gt;Git still wouldn’t know that something new has been added. Technically, it hasn’t started &lt;em&gt;tracking&lt;/em&gt; any files.&lt;/p&gt;
 
@@ -150,12 +249,12 @@ First line, nothing more!!
  
  <entry>
    <title>Baby Steps</title>
-   <link href="http://sizhky.github.io//posts/2016/07/welcome-to-jekyll.html"/>
+   <link href="http://localhost:4000/posts/2016/07/welcome-to-jekyll.html"/>
    <updated>2016-07-08T20:35:38+05:30</updated>
-   <id>http://sizhky.github.io//posts/2016/07/welcome-to-jekyll</id>
-   <content type="html">&lt;p&gt;It’s been ages since I wanted to get hold of a blog. Not blogpost or Wordpress or any of those things. I wanted something under my own control. I’ve found it! This is it! #2muchOptimism&lt;/p&gt;
-
-&lt;p&gt;So here’s a bird’s eye view on &lt;a href=&quot;https://www.youtube.com/watch?v=EtqZVTIro_c&quot;&gt;how it’s done&lt;/a&gt;. That is, to setup a barebones structure for a website and have it running on a local server. Github is a great place to host the blog (it’s free!) and show the world what you know (what do you know, really?). Well, there are important things to nail, now that the foundation has been laid. Markdown, more jekyll, more themes and more, you know, writing. I guess this will be a good start. Maybe, the next post would be an actual tutorial (instead of the just a youtube link) to get a blog running on github, barebones style.&lt;/p&gt;
+   <id>http://localhost:4000/posts/2016/07/welcome-to-jekyll</id>
+   <content type="html">&lt;p&gt;It’s been ages since I wanted to get hold of a blog. Not blogpost or Wordpress or any of those things. I wanted something under my own control. I’ve found it! This is it! No crappy ads or loss of control. I can make the blog however shitty/sparkly I want, without anyone’s permission. Thanks internet! &lt;a href=&quot;https://www.youtube.com/watch?v=ZZ5LpwO-An4&quot;&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;#2muchOptimism&lt;/code&gt;&lt;/a&gt;
+&lt;!--more--&gt;
+So here’s a bird’s eye view on &lt;a href=&quot;https://www.youtube.com/watch?v=EtqZVTIro_c&quot;&gt;how it’s done&lt;/a&gt;. That is, to setup a barebones structure for a website and have it running on a local server. Github is a great place to host the blog (it’s free!) and show the world what you know (what do you know, really?). Well, there are important things to nail, now that the foundation has been laid. Markdown, more jekyll, more themes and more, you know, writing. I guess this will be a good start. Maybe, the next post would be an actual tutorial (instead of the just a youtube link) to get a blog running on github, barebones style.&lt;/p&gt;
 
 &lt;p&gt;This will be it for the blog post! I’ll just leave the default text hanging around.&lt;/p&gt;
 
@@ -170,10 +269,28 @@ First line, nothing more!!
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
 &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
-&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;Tom&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
-&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints &#39;Hi, Tom&#39; to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
 &lt;p&gt;Check out the &lt;a href=&quot;http://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Sailor-Wheel</title>
+   <link href="http://localhost:4000/project/2015/12/sailor-wheel.html"/>
+   <updated>2015-12-12T00:00:00+05:30</updated>
+   <id>http://localhost:4000/project/2015/12/sailor-wheel</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;http://sizhky.github.io/Wheel-Puzzle&quot;&gt;Sailor-Wheel&lt;/a&gt; puzzle is a js based game that my friend and I have done in a week, as a way to build momentum in building more games together.&lt;br /&gt;
+The concept is pretty self explanatory - Spokes around a wheel need to be ‘pulled’ out by point and click. The catch being a network of internal connections that push and pull spokes when any single spoke’s state is modified. The player needs to figure out these cause-effect rules and manage to pull out all the spokes.&lt;/p&gt;
+
+&lt;!--more--&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/project/sailor-wheel.png&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+&lt;div class=&quot;caption&quot;&gt;Home Page&lt;/div&gt;
+
+&lt;p&gt;The rules are generated randomly at every level and keeps the game dynamic and repeater friendly. However the main bug is to be that the rules, being absolutely random, can generate impossible levels to solve and that pretty much ruins the streak.
+That said I am figuring out the mathematics underneath the impossibility of a level and make sure the code only generates those that can be solved. You are free to download the source-code and play with it yourself - the entire game is a single .html file.&lt;/p&gt;
 
 </content>
  </entry>
