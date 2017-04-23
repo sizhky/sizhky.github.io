@@ -36,12 +36,13 @@ Before we've even seen the data all we could've told is that the dice can have t
 
 
 <img src = '/assets/bayes/priors.png' width="2000px" style="margin-top: 10px">
-<div class = 'caption'>Hypothesis Space.<br/>Note that all the heights must sum to 1.</div>
-<br/>Since we couldn't have all the infinite integers we chose the last hypothesis as *'any dice with greater than 28 sides'*
+<div class = 'caption'>Hypothesis Space and Prior Probabilities of each hypothesis.<br/>For example the prior probability for the hypothesis '10 sided dice' is approx 0.04.<br/>Note that all the heights must sum to 1.</div>
+<br/>Since we couldn't have all the infinite integers we chose the last hypothesis as *'any dice with greater than 28 sides'*  
+
 ### Step 2: Figuring out the probabilities of hypotheses **(Priors)**
 The wisdom in thinking like a bayesian lies in setting the probabilities to this hypothesis space. Firstly the sum of all the probabilities of these hypotheses sum upto one. Generally speaking, we set larger probability to events that have happened more in the past.  
 
-To give an idea of what I'm talking about - 'experience' tells us that the probability that I own a 373 faced dice is really small. The number of times one has seen such a dice is non-existent (what about a 10 Million faced dice?) but it's not impossible. So we set a probability of seeing that hypothesis as almost zero. What we do often see are dice with a fewer faces and the probabilities better reflect that. (Strictly speaking, the [priors don't matter](/posts/priors-dont-matter.html) when we have enough evidence)
+To give an idea of what I'm talking about - 'experience' tells us that the probability that I own a 373 faced dice is really small. The number of times one has seen such a dice is non-existent (what about a 10 Million faced dice?) but it's not impossible. So we set a probability of seeing that hypothesis as almost zero. What we do often see are dice with a fewer faces and the probabilities better reflect that. (Strictly speaking, the [priors don't matter]({% post_url 2017-04-23-priors-do-not-matter %}) when we have enough evidence)
 
 ### Step 3: Figuring out the probability of seeing the data under each hypothesis. **(Likelihood)**
 Once the hypotheses are set, we compute the probability of seeing our data in each of the hypothesis. This is a realitively easy and straight forward step. In the case of an *n sided fair dice* the probability of seeing a number *k* show up is 1/n irrespective of k as long as k <= n and 0 if k > n. 
