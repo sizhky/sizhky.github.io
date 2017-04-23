@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      XOR using MultiLayered Perceptron &middot; Flavours of a Nerd
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/favicon.png">
+  <link rel="shortcut icon" href="/public/favicon.png">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body class="theme-base-08">
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item">
+    <p>FoaN is a space dedicated for simple experiments and insights. I occasionally give useful tutorials and my personal opinions on life and stuff.</p>
+  </div>
+
+  <nav class="sidebar-nav">
+    <a class="sidebar-nav-item" href="/">Home</a>
+
+    
+
+    
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/about">About</a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/projects">Projects</a>
+        
+      
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      &copy; 2017. All rights reserved.
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Flavours of a Nerd</a>
+            <small>Human and Machine Learning</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">XOR using MultiLayered Perceptron</h1>
+  <span class="post-date">28 Oct 2016</span>
+  <p>Historically, almost every non-tree based ML algorithm created only linear separable spaces, and the XOR simply cannot be modeled with them. Enter <a href="https://www.coursera.org/learn/machine-learning/lecture/solUx/examples-and-intuitions-ii">the multilayerd perceptron</a> (MLP) and everything changed. With an elegant chaining of linear combinations of inputs we can obtain almost any number of linear decision boundaries. So I thought I’d bulid a robust XOR gate using a simple MLP
+<!--more--></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">x<sub>1</sub></th>
+      <th style="text-align: center">x<sub>2</sub></th>
+      <th style="text-align: center">y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">0</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">1</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="caption">Truth table of XOR </div>
+
+<p>The goal was to create a network which can learn these four points with as minimal setup as possible. And that would be one with one layer each for input, hidden and output nodes where the hidden layer has 2 neurons only.</p>
+
+<p><img src="/assets/xor/nn architecture.jpg" alt="" /></p>
+<div class="caption">Simple MLP! </div>
+
+<p>To fit four points using a neural network is simple. Right?</p>
+
+<p><img src="/assets/xor/zero loss on simple nn.bmp" alt="" /></p>
+<div class="caption">Loss on an XOR data. Done and dusted! </div>
+
+<p>It turns out, no. While it did classify correctly most of the times, there were instances when the network simply wouldn’t converge.</p>
+
+<p><img src="/assets/xor/loss on simple nn.bmp" alt="" /></p>
+<div class="caption">Why you no converge to zero? </div>
+
+<p>Why can’t it fit four points? Is Andrew Ng wrong when he <a href="https://www.coursera.org/learn/machine-learning/lecture/solUx/examples-and-intuitions-ii">claimed</a> that a simple MLP can predict XOR? The answer: It depends on the way the weights are initialized. This will dictate, at which local minimum is the network going to converge.</p>
+
+<p>To dig deeper into this I created a 3D graph of y vs (x<sub>1</sub>,x<sub>2</sub>) where z-axis is y, the output of our simple MLP. And depending on the weights the MLP will have a different linear separators and heights for each plateau.</p>
+
+<p><img src="/assets/xor/input output of a simple mlp.bmp" alt="" /></p>
+<div class="caption">There are four plateaus for a simple MLP</div>
+
+<p>The interesting observation is that a pair of plateaus on the opposite corners necessarily have highest and lowest z value. And this actually means a simple MLP can <strong>never</strong> fit an XOR gate since the ideal gate should have the opposite quadrants on same heights. This got me confused. Where does Andrew Ng’s claim fit into the picture? The answer is, the weights were built to fit the data. And this needn’t happen with random initializations.</p>
+
+<p><img src="/assets/xor/special weights.gif" alt="" /></p>
+<div class="caption">Notice how (0,1) and (1,0) are in the valley while (0,0) and (1,1) are on the plateaus</div>
+
+<p>This made me rethink my model. XOR is not about fitting four points, but working with the entire cartesian plane.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">x<sub>1</sub></th>
+      <th style="text-align: center">x<sub>2</sub></th>
+      <th style="text-align: center">y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">negative</td>
+      <td style="text-align: center">negative</td>
+      <td style="text-align: center">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">positive</td>
+      <td style="text-align: center">negative</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">negative</td>
+      <td style="text-align: center">positive</td>
+      <td style="text-align: center">1</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">positive</td>
+      <td style="text-align: center">positive</td>
+      <td style="text-align: center">0</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="caption">Modified XOR</div>
+
+<p>And this way, I generated thousands of pairs of real numbers (x<sub>1</sub>, x<sub>2</sub>) each between -10 and 10 and their corresponding y values. Almost every training instance gave only 85% accuracy.</p>
+
+<p><img src="/assets/xor/ideal vs computed.png" alt="" /></p>
+<div class="caption">Ideal XOR vs Computed. <br />The red circles on the right show the errors which a simple 2 node MLP cannot calculate.</div>
+
+<p>This once again shows that a simple MLP <strong>cannot</strong> fit XOR data. The workaround is to increase the number of nodes in the hidden layer, and this in turn creates multiple plateaus which will only fit the data and not generalize</p>
+
+
+</div>
+
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/posts/2016/07/barebones-git.html">
+            Barebones Git
+            <small>11 Jul 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/posts/2016/07/welcome-to-jekyll.html">
+            Baby Steps
+            <small>08 Jul 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/project/2015/12/sailor-wheel.html">
+            Sailor-Wheel
+            <small>12 Dec 2015</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

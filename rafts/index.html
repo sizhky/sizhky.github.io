@@ -11,7 +11,7 @@
 
   <title>
     
-      Flavours of a Nerd &middot; a glob of incoherent, unanticipated blabber
+      Flavours of a Nerd &middot; Human and Machine Learning
     
   </title>
 
@@ -39,7 +39,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item">
-    <p>A reserved space to show my views, progress and checkpoints that relate to technical, spiritual and artsy stuff I do.</p>
+    <p>FoaN is a space dedicated for simple experiments and insights. I occasionally give useful tutorials and my personal opinions on life and stuff.</p>
   </div>
 
   <nav class="sidebar-nav">
@@ -73,11 +73,17 @@
         
       
     
+      
+        
+          <a class="sidebar-nav-item" href="/projects">Projects</a>
+        
+      
+    
   </nav>
 
   <div class="sidebar-item">
     <p>
-      &copy; 2016. All rights reserved.
+      &copy; 2017. All rights reserved.
     </p>
   </div>
 </div>
@@ -90,7 +96,7 @@
         <div class="container">
           <h3 class="masthead-title">
             <a href="/" title="Home">Flavours of a Nerd</a>
-            <small>a glob of incoherent, unanticipated blabber</small>
+            <small>Human and Machine Learning</small>
           </h3>
         </div>
       </div>
@@ -98,149 +104,54 @@
       <div class="container content">
         <div class="posts">
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/random/2016/07/something.html">
-        Something
-      </a>
-    </h1>
+    
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/posts/2016/10/my-experiments-with-XOR-Copy.html">
+            XOR using MultiLayered Perceptron
+          </a>
+        </h1>
 
-    <span class="post-date">15 Jul 2016</span>
+        <span class="post-date">28 Oct 2016</span>
 
-    <h1 id="do-you-wanna-know">Do you wanna know?</h1>
+        <p>Historically, almost every non-tree based ML algorithm created only linear separable spaces, and the XOR simply cannot be modeled with them. Enter <a href="https://www.coursera.org/learn/machine-learning/lecture/solUx/examples-and-intuitions-ii">the multilayerd perceptron</a> (MLP) and everything changed. With an elegant chaining of linear combinations of inputs we can obtain almost any number of linear decision boundaries. So I thought I’d bulid a robust XOR gate using a simple MLP</p>
 
-<h2 id="random-random">Random random</h2>
-
-<h3 id="more-randomness">More randomness</h3>
-
-<p>What is the meaning of all this?</p>
-
-  </div>
+...
+      </div>
+    
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="/posts/2016/07/barebones-git.html">
-        Barebones Git
-      </a>
-    </h1>
+    
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/posts/2016/07/barebones-git.html">
+            Barebones Git
+          </a>
+        </h1>
 
-    <span class="post-date">11 Jul 2016</span>
+        <span class="post-date">11 Jul 2016</span>
 
-    <p>Many people I know confuse Git with Github, and probably don’t have a good idea of how powerful version control is. I guess, half the trouble with it is the steepness of the learning curve, not to mention how wonky even the concept of version control is. I’ve had my own million doubts in using Git and never knew where to start. Even if I did start, I’d have given up on the second day not understanding why certain thing is the way it is.</p>
+        <p>Many people I know confuse Git with Github, and probably don’t have a good idea of what version control is. I guess, half the trouble with lies in the steep learning curve, not to mention how new and bizzare some concepts are. I’ve had my own million doubts before using Git and never knew where to start. Even if I did start, I’d have had given up on the second day not understanding why certain thing is the way it is.<br />
+This post is just for that, to de-mistify what a good tool Git is and how easy it is to integrate into the workflow and, really, master version controlling with only a handful of commands. I hope the days of copy-pasting a file in the name of ‘backup’ are a days of the past.</p>
 
-<p>This post is just for that, to de-mistify what a good tool Git is and how easy it is to integrate into the workflow and, really, master version control with only a handful of commands. I hope the days of copy-pasting a file in the name of ‘backup’ are a days of the past.</p>
+...
+      </div>
+    
+  
+    
+      <div class="post">
+        <h1 class="post-title">
+          <a href="/posts/2016/07/welcome-to-jekyll.html">
+            Baby Steps
+          </a>
+        </h1>
 
-<h2 id="firstly">Firstly…</h2>
-<p>Git is a version control software, created by <a href="https://www.linux.com/blog/10-years-git-interview-git-creator-linus-torvalds">Linus Torvalds</a>, the founder of Linux. <a href="github.com">Github</a>, on the other hand is a neat platform to share and store code along with all the goodness of git. Github, is by default, a free platform at the cost of hosting the contents visible to the public. There’s a subscription service to have propitiatory projects stored online in all secrecy. Even though Git can seamlessly integrate with Github, it is however, also compatible with other code sharing platforms or just any location for that matter (ftps and shared networks, included)</p>
+        <span class="post-date">08 Jul 2016</span>
 
-<h2 id="secondly">Secondly…</h2>
-<p>It’s all about practice. Let’s dedicate this section to create a setup, to restore backups, without copy-pasting a single file.</p>
+        <p>It’s been ages since I wanted to get hold of a blog. Not blogpost or Wordpress or any of those things. I wanted something under my own control. I’ve found it! This is it! No crappy ads or loss of control. I can make the blog however shitty/sparkly I want, without anyone’s permission. Thanks internet! <a href="https://www.youtube.com/watch?v=ZZ5LpwO-An4"><code class="highlighter-rouge">#2muchOptimism</code></a></p>
 
-<h3 id="lets-start-setting-up-in-an-empty-folder-ill-name-it-gittut">Let’s start setting up in an empty folder (I’ll name it gittut)</h3>
-
-<p>The magic starts with initializing a Git repository</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\&gt;mkdir gittut
-
-C:\...\&gt;cd gittut
-
-C:\...\gittut&gt;git init
-</code></pre>
-</div>
-
-<p>It means that the folder is ready for some version control action! The only visible difference would be that there is be .git folder created in the directory which is hidden by default. The takeaway point is that any location containing a .git folder means one or more (generally all) files have versions which Git is handling. Let’s create a text file named ‘my.txt’.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;more my.txt
-First line, nothing more!!
-
-</code></pre>
-</div>
-
-<p><img src="/assets/gittut/initialized_folder.jpg" alt="on my waaaay!" />
-<em>the current folder would look like this</em></p>
-
-<p>Git still wouldn’t know that something new has been added. Technically, it hasn’t started <em>tracking</em> any files.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;git status
-On branch master
-
-Initial commit
-
-Untracked files:
-  (use "git add &lt;file&gt;..." to include in what will be committed)
-
-        my.txt
-
-nothing added to commit but untracked files present (use "git add" to track)
-</code></pre>
-</div>
-
-<p>Git status gives, well, the current status of the folder.</p>
-
-<h3 id="the-way-to-start-tracking-a-file-is">The way to start tracking a file is</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;git add my.txt
-
-C:\...\gittut&gt;git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-  (use "git rm --cached &lt;file&gt;..." to unstage)
-
-        new file:   my.txt
-</code></pre>
-</div>
-
-<p>To add all the files in a folder, one would <code class="highlighter-rouge">git add -A</code></p>
-
-<h3 id="lets-see-what-happens-after-editing-the-text-file">Let’s see what happens after editing the text file…</h3>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;more my.txt
-First line, nothing more!! :3
-
-Second line... ADDED!
-
-</code></pre>
-</div>
-<p>There was a modification in the first line ‘:3’ and a second line was added.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;git status
-On branch master
-
-Initial commit
-
-Changes to be committed:
-  (use "git rm --cached &lt;file&gt;..." to unstage)
-
-        new file:   my.txt
-
-Changes not staged for commit:
-  (use "git add &lt;file&gt;..." to update what will be committed)
-  (use "git checkout -- &lt;file&gt;..." to discard changes in working directory)
-
-        modified:   my.txt
-</code></pre>
-</div>
-
-<p>Git notifies the modification that happend with respect to the state when a file was added. This is because, the moment we <code class="highlighter-rouge">add</code> a file (to what is called as a stage), it freezes the state of the file for a possible commit. And any modifications after <code class="highlighter-rouge">add</code> -ing a file will not be committed in the future. <code class="highlighter-rouge">add</code> functions as a soft commit where if a code goes awry after modification, one could always go back to the state when it was <code class="highlighter-rouge">add</code> -ed. <code class="highlighter-rouge">git checkout my.txt</code> would essentially revert back the text file to the state when it was added for staging.</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>C:\...\gittut&gt;git checkout my.txt
-
-C:\...\gittut&gt;more my.txt
-First line, nothing more!!
-
-</code></pre>
-</div>
-
-<p>And this way, it is always possible to revert a dysfunctional code back to a working state (given you <code class="highlighter-rouge">add</code> the file to stage everytime a code works just fine). There’s your backup isn’t it!?</p>
-
-<hr />
-
-<p>Of course! We’ve just scratched the surface of the shell. We barely tickled the tentacles and hardly glanced at the ginormous gizmo, which is Git. There’s more to git than simple <code class="highlighter-rouge">add</code> command.</p>
-
-  </div>
+...
+      </div>
+    
   
 </div>
 
