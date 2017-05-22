@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "A to Z Bayes"
+title:  "A to Z Bayes - Part 1: The Basics"
 date:   2017-04-21 19:45:49 +0530
 categories: posts
 ---
