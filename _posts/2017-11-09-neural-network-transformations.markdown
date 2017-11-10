@@ -15,7 +15,7 @@ The kernel trick is one of the coolest things I've learned in ML. We have bulit 
 
 <p class="side-note">Think of it like this. There is a river separating the land into two. We can think of lands separated by a crooked line, or if the land itself were to be stretched like a blanket, with the right kind and amount of stretching the river <b>looks</b> straight and the two lands on both sides warped. </p>
 
-That's the simple trick. SVM and (for this particular topic) Neural Networks are basically about that. While SVM has an explicit bais about the type of kernel that must be used, Neural Networks take it a step further and finds its own kernel.
+That's the simple trick. SVM and (for this particular topic) Neural Networks are basically about that. While SVM has an explicit bias about the type of kernel that must be used, Neural Networks take it a step further and finds its own kernel.
 
 <!--more-->
 <br/>
@@ -32,7 +32,7 @@ As you can see in the above network, the inputs fed are `(x, y)` of the point. T
 
 <img src="/assets/kerneltrick/1.png" style="margin-top: 10px"/>
 <p class="caption">Initially for the machine all the data is simply there on the ground. Just lying. No redness or blueness attached. It knows nothing, like John Snow.</p>
-But fter the first transformation the points are shot into 3d space.
+But after the first transformation, the points are shot into 3d space.
 <img src="/assets/kerneltrick/2.png" style="margin-top: 10px"/>
 <img src="/assets/kerneltrick/2.1.png"/>
 
