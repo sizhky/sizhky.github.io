@@ -25,14 +25,14 @@ That's the simple trick. SVM and (for this particular topic) Neural Networks are
 <img src="/assets/kerneltrick/0.png" style="margin-top: 10px"/>
 <div class="caption">There is no way a single line could ever separate this data</div> 
 
-As you can see in the above network, the inputs fed are `(x, y)` of the point. Then each point is transformed into a 3 dimnesional hidden space of `(h1, h2, h3)` axis data, which is then brought back into the 2 dimensional `(orange, blue)` axis space. The transformation from inputs to hidden dimensions is caused by a weight matrix whose dimensions would be `(2, 3)` (2 dimensional data being transformed into 3 dimensional data). 
+As you can see in the above network, the inputs fed are `(x, y)` of the point. Then each point is transformed into a 3 dimnesional hidden space of `(h1, h2, h3)` axis data (and hence the `three neurons`, which is then brought back into the 2 dimensional `(orange, blue)` axis space. The transformation from inputs to hidden dimensions is caused by a weight matrix whose dimensions would be `(2, 3)` (2 dimensional data being transformed into 3 dimensional data). 
 <p class="side-note">This transformation is the root of all matrix algebra and vector algebra</p>
 <p class="side-note">Also, the process of finding the right weight matrices, a.k.a., back-propagation is another genius trick that we could talk some other time</p> 
 
 
 <img src="/assets/kerneltrick/1.png" style="margin-top: 10px"/>
 <p class="caption">Initially for the machine all the data is simply there on the ground. Just lying. No redness or blueness attached. It knows nothing, like John Snow.</p>
-After the first transformation the points are shot into 3d space.
+But fter the first transformation the points are shot into 3d space.
 <img src="/assets/kerneltrick/2.png" style="margin-top: 10px"/>
 <img src="/assets/kerneltrick/2.1.png"/>
 
