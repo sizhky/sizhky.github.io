@@ -53,7 +53,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Git status gives, well, the current status of the folder. 
+`git status` gives, well, the current status of the folder. 
 
 ### The way to start tracking a file is
 
