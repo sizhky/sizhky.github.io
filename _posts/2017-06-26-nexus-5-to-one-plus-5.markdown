@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Nexus 5 to Oneplus 5"
-date:   22017-06-26 17:46:21 +0530
+date:   2017-06-26 17:46:21 +0530
 categories: posts
 comments: true
 hidden: true
