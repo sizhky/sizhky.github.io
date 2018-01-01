@@ -7,7 +7,7 @@ categories: posts
 
 Probability is a weird child of math and science. One wants to quantify how _uncertain_ one is with given knowledge. But to top it off is the weirder pet in the family - probability density. 
 
->"I mean, wtf?" 
+>"I mean, what?" 
 <p class="side-note">-sizhky</p>
 
 Who wants to know how _densely uncertain_ one is? To talk about density in normal science one needs a normalizing factor. Like how heavy is something **per m**<sup>3</sup>. Where is that _per_-ness in a probability density function? 
@@ -32,19 +32,19 @@ Here, all the heights sum to 1. And every possibility must have a non-negative p
 
 It is all well and good until we face a common issue. What if there are _infinite_ possibilities? How many probabilities are we going to compute?
 
-## Part Two: The Shitty PMF
+## Part Two: The PMF that wants to be PDF
 Let's brute force our way through a problem of infinite possibilities. A simple example would be a random _real_ number generator between 0 and 1/2. We generate 10000 numbers and bucket them into intervals of fixed width. E.g. We can see that roughly a fifth of the numbers would be between each 0.1 bucket
 <img src = '/assets/pdensity/3.bmp' width="450px" style="margin-top: 10px">
 But nothing stops us from fixing the bucket size, so we could make it smaller and smaller. 
 <img src = '/assets/pdensity/4.bmp' width="600px" style="margin-top: 10px;margin-bottom: 10px">
-As you can see, the heights get smaller and smaller since the probability of a number falling in a smaller bucket is small. And here is the heart of the problem. The Shitty PMF is shitty because it is guaranteed to give 0 probabilities for every bucket at infinite precision.  
-But continuous distributions don't give a \*\*\* about the resolution of a histogram. We both know our random-number-generator has a probability distribution. We just don't know what it is. We need a better tool to map a continous distribution.
+As you can see, the heights get smaller and smaller since the probability of a number falling in a smaller bucket is small. And here is the heart of the problem. The PMF can never work for continuous distributions because it is guaranteed to give 0 probabilities for every bucket at infinite precision.  
+But continuous distributions don't care about the resolution of a histogram. We both know our random-number-generator has a probability distribution. We just don't know what it is. We need a better tool to map a continous distribution.
 
 ## Part Three: The PDF (Probability _Density_ Function)
 Here's the thing about continous distributions - there are infinite values in any bucket. Hence, a PMF with infinite resolution would give a decent approximation of the _shape_ of the function even if it is at the cost of near-zero heights. So one could compromize on a decently large resolution and freeze the PMF so as to get the shape. Then the y-axis is rescaled such that the _area under the shape becomes 1_. In our case, this results in a rectangle with width 0.5 and height 2. This rescaling of y-axis itself is the normalizing factor, the _per_-ness in the density [#bullshitspiration](https://www.urbandictionary.com/define.php?term=bullshitspiration).
 <img src = '/assets/pdensity/5.bmp' width="600px" style="margin-top: 10px;margin-bottom: 10px">
-<div class = 'caption'>This is <b>not</b> a boa eating an elephant</div>
-<p class="side-note">On a side note - Kernel Density Estimation - is all about finding the most accurate PDF from given observations/histogram/PMF. I used an r-based function called 'density' to arrive at the above graph which uses IDK what KDE</p>
+<div class = 'caption'>This is <b>not</b> a boa that ate an elephant</div>
+<p class="side-note">On a side note - Kernel Density Estimation - is all about finding the most accurate PDF from given observations/histogram/PMF. I used an r-based function called 'density' to arrive at the above graph which uses a <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Comparison_of_1D_histogram_and_KDE.png/800px-Comparison_of_1D_histogram_and_KDE.png">very simple technique</a></p>
 
 Now how _does_ one make sense of the graph? What does the 2 even mean?  
 
