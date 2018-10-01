@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Tokenizers in Telugu Text"
-date:   2018-08-02 02:00:00 +0530
+date:   2018-10-02 02:00:00 +0530
 categories: posts
 ---
 
