@@ -139,7 +139,7 @@ is divided into
 
 where it is supposed to be 
 
-`స్వాహా`, `స్వధా`, `అమతి`, `మేధా`, `శ్రుతిః`, `స్మృతి`, `అనుత్తమా`
+`స్వాహా`, `స్వధా`, `మతి`, `మేధా`, `శ్రుతిః`, `స్మృతి`, `అనుత్తమా`
 
 In telugu (and a few Indian languages I know of) when you combine words, sometimes news sounds between the words are generated, and sometimes removed based on the context. This is the reason for the wrong names while splitting.
 
