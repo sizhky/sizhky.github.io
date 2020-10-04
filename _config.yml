@@ -9,7 +9,7 @@ title:               Flavours of a Nerd
 tagline:             'Human and Machine Learning'
 description:         "FoaN is a space dedicated for simple experiments and insights. I occasionally give useful tutorials and my personal opinions on life and stuff."
 url:                 http://sizhky.github.io/
-baseurl:             
+baseurl:
 paginate:            3
 show_drafts:         false
 # About/contact
@@ -21,6 +21,7 @@ excerpt_separator: <!--more-->
 # Custom vars
 version:             1.0.0
 gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 # Conversion
 markdown:    kramdown
 highlighter: rouge
