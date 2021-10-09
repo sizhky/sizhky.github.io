@@ -5,9 +5,9 @@ permalink:           /:categories/:year/:month/:title.html
 relative_permalinks: false
 
 # Setup
-title:               Flavours of a Nerd
+title:               Ignosi Labs
 tagline:             'Human and Machine Learning'
-description:         "FoaN is a space dedicated for simple experiments and insights. I occasionally give useful tutorials and my personal opinions on life and stuff."
+description:         "This is a space dedicated for experiments and insights. I occasionally give useful tutorials."
 url:                 http://sizhky.github.io/
 baseurl:
 paginate:            4
