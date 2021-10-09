@@ -7,7 +7,7 @@ categories: posts
 
 [We have seen how to setup the ingredients for an experiment]({% post_url 2021-10-07-auto-train-config %}).  
 [We have also seen how to create a recipe for a task that will act as boilerplate code for any number of experiments]({% post_url 2021-10-09-auto-train-boiler-plate %})  
-Let's go through some more of AutoTrain's recipes...
+Let's go through some more of AutoTrain's ingredients...
 
 <!--more-->
 
