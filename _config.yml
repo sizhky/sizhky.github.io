@@ -10,7 +10,7 @@ tagline:             'Human and Machine Learning'
 description:         "FoaN is a space dedicated for simple experiments and insights. I occasionally give useful tutorials and my personal opinions on life and stuff."
 url:                 http://sizhky.github.io/
 baseurl:
-paginate:            3
+paginate:            4
 show_drafts:         false
 # About/contact
 author:
