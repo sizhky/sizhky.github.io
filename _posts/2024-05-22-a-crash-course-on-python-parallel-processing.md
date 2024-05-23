@@ -171,8 +171,3 @@ print(f'{duration=} s')
 ![](https://i.imgur.com/0R1KKOw.png)
 
 Only 15 seconds! As you can see, we used the power of parallel processing to start all the computations at once and collect them all at the end, without worrying about when each one of them completes. This makes the whole process quick and the only factor that decides the final time is the slowest simulation
-
-
-```python
-
-```
