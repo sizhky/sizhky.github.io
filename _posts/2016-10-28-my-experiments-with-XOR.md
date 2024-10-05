@@ -46,12 +46,13 @@ The interesting observation is that a pair of plateaus on the opposite corners n
 
 This made me rethink my model. XOR is not about fitting four points, but working with the entire cartesian plane. 
 
-|       x<sub>1</sub>     |     x<sub>2</sub>       | y |
+| x<sub>1</sub>|  x<sub>2</sub> | y |
 |:------------:|:------------:|:-:|
 | negative     | negative     | 0 |
 |positive      | negative     | 1 |
 |  negative    | positive     | 1 |
 | positive     | positive     | 0 |
+
 
 <div class="caption">Modified XOR</div>
 
