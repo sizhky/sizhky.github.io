@@ -35,6 +35,7 @@ vectors = rag.fetch_vectors(store=rag_store)
 class Response(BaseModel):
     name: str
     response: str
+    response_summary: str
 
 
 llm = 'https://my-llm/'
@@ -49,22 +50,22 @@ for response in responses:
 """
 Response(
     name="Matt",
-    response="Nucleus is the power house of the cell where the necessary proteins are made that help in the functioning of the cell"
+    response_summary="Nucleus is the power house of the cell where the necessary proteins are made that help in the functioning of the cell"
 )
 
 Response(
     name="John",
-    response="Cell is too small to hold a powerhouse"
+    response_summary="Cell is too small to hold a powerhouse"
 )
 
 Response(
     name="Sarah",
-    response="Skipped the question altogether"
+    response_summary="Skipped the question altogether"
 )
 
 Response(
     name="Alice",
-    response="DNA is the powerhouse of the cell with the help of RNA"
+    response_summary="DNA is the powerhouse of the cell with the help of RNA"
 )
 """
 ```
