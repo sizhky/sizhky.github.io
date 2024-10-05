@@ -34,7 +34,7 @@ vectors = rag.fetch_vectors(store=rag_store)
 # Specify the desired format in which the 
 class Response(BaseModel):
     name: str
-    response: str
+    response_source: str
     response_summary: str
 
 
@@ -50,22 +50,30 @@ for response in responses:
 """
 Response(
     name="Matt",
+    response_source="quizzes/batch-2024/2024-10-05/Matt.pdf:::page-2::lines-3:5",
     response_summary="Nucleus is the power house of the cell where the necessary proteins are made that help in the functioning of the cell"
+    response_type="incorrect"
 )
 
 Response(
     name="John",
+    response_source="quizzes/batch-2024/2024-10-05/John.txt:::page-3::lines-11:12",
     response_summary="Cell is too small to hold a powerhouse"
+    response_type="incorrect"
 )
 
 Response(
     name="Sarah",
+    response_source="quizzes/batch-2024/2024-10-05/Sarah.docx",
     response_summary="Skipped the question altogether"
+    response_type="missing"
 )
 
 Response(
     name="Alice",
+    response_source="quizzes/batch-2024/2024-10-05/Alice.txt:::page-12::lines-12:15,17:18:::page-13::lines-1:2",
     response_summary="DNA is the powerhouse of the cell with the help of RNA"
+    response_type="incorrect"
 )
 """
 ```
