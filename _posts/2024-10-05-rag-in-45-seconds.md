@@ -32,7 +32,7 @@ rag.inject_documents(exam_papers, store=rag_store, chunk_size=1000)
 # Fetch the vectors from rag_store
 vectors = rag.fetch_vectors(store=rag_store)
 
-# Specify the desired format in which the 
+# Specify the desired response format
 class Response(BaseModel):
     name: str
     response_source: str
