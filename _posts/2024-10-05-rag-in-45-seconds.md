@@ -11,6 +11,7 @@ If you were to know about what is RAG and why is it useful, read the following p
 
 ```python
 from rag import RAG, Document
+from typing import Literal
 from pydantic import BaseModel
 
 # Where do you want to store your vectors?
@@ -36,6 +37,7 @@ class Response(BaseModel):
     name: str
     response_source: str
     response_summary: str
+    response_type: Literal['correct','incorrect','missing']
 
 
 llm = 'https://my-llm/'
