@@ -80,4 +80,4 @@ Response(
 """
 ```
 
-Post was inspired from the first chapter of *RAG-Driven Generative AI*
+Post was inspired from the first chapter of *[RAG-Driven Generative AI](https://www.packtpub.com/en-at/product/rag-driven-generative-ai-9781836200918)*
