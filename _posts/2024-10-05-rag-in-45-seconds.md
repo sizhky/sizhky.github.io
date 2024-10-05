@@ -44,7 +44,7 @@ llm = 'https://my-llm/'
 query = 'Give me the list of all students who could not identify what is the powerhouse of the cell and summarize what was answered for the question'
 
 # Correlate the query with all the exam papers and fetch the responses from an LLM in the desired format
-responses = vectors.query(query, llm=llm, response_class=Response)
+responses = rag.query(query, llm=llm, vectors=vectors, response_class=Response)
 
 for response in responses:
     print(response)
