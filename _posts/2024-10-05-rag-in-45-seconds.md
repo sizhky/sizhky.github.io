@@ -29,9 +29,6 @@ rag_store = f'{hub}/{source}/'
 # i.e., hub://international-school-of-engineering/biotechnology/quizzes/batch-2024/2024-10-05/
 rag.inject_documents(exam_papers, store=rag_store, chunk_size=1000)
 
-# Fetch the vectors from rag_store
-vectors = rag.fetch_vectors(store=rag_store)
-
 # Specify the desired response format
 class Response(BaseModel):
     name: str
@@ -43,6 +40,8 @@ class Response(BaseModel):
 llm = 'https://my-llm/'
 query = 'Give me the list of all students who could not identify what is the powerhouse of the cell and summarize what was answered for the question'
 
+# Fetch your universe of documents, the LLM needs to know context for
+vectors = rag.fetch_vectors(store=rag_store)
 # Correlate the query with all the exam papers and fetch the responses from an LLM in the desired format
 responses = rag.query(query, llm=llm, vectors=vectors, response_class=Response)
 
@@ -78,6 +77,14 @@ Response(
     response_type="incorrect"
 )
 """
+
+# Alternatively, you can suggest the vector store directly
+# to get results from evey document that you have in hand.
+responses = rag.query(
+    query, llm=llm, 
+    rag_store='hub://international-school-of-engineering/biotechnology/', 
+    response_class=Response
+)
 ```
 
 Post was inspired from the first chapter of *[RAG-Driven Generative AI](https://www.packtpub.com/en-at/product/rag-driven-generative-ai-9781836200918)*
