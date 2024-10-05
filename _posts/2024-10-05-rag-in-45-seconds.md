@@ -16,7 +16,7 @@ from pydantic import BaseModel
 # Where do you want to store your vectors?
 hub = 'hub://international-school-of-engineering/biotechnology/'
 # How do you want to create the vectors?
-vector_model = 'facebook/dpr-question_encoder-single-nq-base'
+vector_model = 'https://my-vector-embedder/'
 rag = RAG(hub_url=hub, model=vector_model)
 
 # Whare are your documents?
