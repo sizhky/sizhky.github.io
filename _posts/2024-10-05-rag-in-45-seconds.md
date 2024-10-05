@@ -5,7 +5,7 @@ date:   2024-10-05 14:35 +0530
 categories: posts
 ---
 
-If you were to know about what is RAG and why is it useful, read the following pseudo(ish) code
+If you want to know about what is RAG and how it's used, read the following pseudo(ish) code
 
 <!--more-->
 
