@@ -79,3 +79,5 @@ Response(
 )
 """
 ```
+
+Post was inspired from the first chapter of *RAG-Driven Generative AI*
