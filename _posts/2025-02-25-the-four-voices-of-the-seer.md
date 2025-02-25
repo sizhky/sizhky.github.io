@@ -5,8 +5,10 @@ date:   2025-02-25 15:29:38 +0530
 categories: posts
 ---
 
-In a distant land, a young sage named Arka sought the ultimate truth. He climbed the sacred mountain to meet the legendary Oracle, who spoke in four voices—Para, Pashyati, Madhyama, and Vaikhari.
-<!--more-->
+In a distant land, a young sage named Arka sought the ultimate truth. He climbed the sacred mountain to meet the legendary Oracle, who spoke in four voices—Para, Pashyati, Madhyama, and Vaikhari.  
+
+<!--more-->  
+
 Para – The Silent Knowing
 
 As Arka approached the peak, he sensed a presence beyond words. A deep knowing filled his being, yet no sound was heard. The Oracle’s first voice, Para, spoke in silence—the unmanifested truth beyond thought.
