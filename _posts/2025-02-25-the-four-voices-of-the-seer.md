@@ -5,8 +5,6 @@ date:   2025-02-25 15:29:38 +0530
 categories: posts
 ---
 
-# The Four Voices of the Seer
-
 In a distant land, a young sage named Arka sought the ultimate truth. He climbed the sacred mountain to meet the legendary Oracle, who spoke in four voices—Para, Pashyati, Madhyama, and Vaikhari.
 <!--more-->
 Para – The Silent Knowing
