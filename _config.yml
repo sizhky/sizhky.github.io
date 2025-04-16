@@ -5,7 +5,7 @@ permalink:           /:categories/:year/:month/:title.html
 relative_permalinks: false
 
 # Setup
-title:               sizhky.github.io
+title:               articles from sizhky
 tagline:             ''
 description:         "This is a space dedicated for experiments and insights. I occasionally give useful tutorials."
 url:                 http://sizhky.github.io/
@@ -28,3 +28,6 @@ highlighter: rouge
 
 #Comments
 comments: true
+
+kramdown:
+  hard_wrap: true

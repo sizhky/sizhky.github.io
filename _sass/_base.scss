@@ -204,3 +204,35 @@ pre {
         }
     }
 }
+
+
+/* Style for the details element */
+details {
+    background-color: #f9f9f9; /* Light gray background */
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 5px; /* Rounded corners */
+    padding: 10px; /* Padding inside the details box */
+    margin-bottom: 1rem; /* Space below the details box */
+}
+
+/* Style for the summary element */
+summary {
+    cursor: pointer; /* Show pointer cursor on hover */
+    font-weight: bold; /* Bold text for the summary */
+    padding: 10px; /* Padding around the summary text */
+    border-bottom: 1px solid #ccc; /* Underline */
+}
+
+/* Change background color on hover */
+summary:hover {
+    background-color: #e0e0e0; /* Slightly darker gray */
+}
+
+/* Style for the content inside details */
+details[open] {
+    padding: 10px; /* Padding when the details are expanded */
+}
+
+details[open] summary {
+    border-bottom: none; /* Remove underline when expanded */
+}

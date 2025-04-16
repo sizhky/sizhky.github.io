@@ -1,13 +1,14 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    autoprefixer-rails (10.4.16.0)
+    autoprefixer-rails (10.4.19.0)
       execjs (~> 2)
     bootstrap (5.3.3)
       autoprefixer-rails (>= 9.1.0)
       popper_js (>= 2.11.8, < 3)
     execjs (2.9.1)
-    ffi (1.16.3)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86_64-darwin)
     jekyll-paginate (1.1.0)
     jekyll-watch (2.2.1)
       listen (~> 3.0)
@@ -22,14 +23,13 @@ GEM
     rb-fsevent (0.11.2)
     rb-inotify (0.11.1)
       ffi (~> 1.0)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
-    rouge (4.2.1)
-    strscan (3.1.0)
-    webrick (1.8.1)
+    rexml (3.3.8)
+    rouge (4.4.0)
+    webrick (1.8.2)
 
 PLATFORMS
   arm64-darwin-23
+  arm64-darwin-24
   x86_64-darwin-19
 
 DEPENDENCIES
@@ -41,4 +41,4 @@ DEPENDENCIES
   webrick
 
 BUNDLED WITH
-   2.5.10
+   2.5.21
