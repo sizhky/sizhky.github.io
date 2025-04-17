@@ -7,7 +7,7 @@ categories: posts
 
 Karpathy coined "Vibe Coding" to describe a flow-like state where developers code as if in a creative trance. The developer drives intent; the editor delivers code. Despite its pitfalls, vibe coding is here to stay. So what comes next?
 
-<!-- more -->
+<!--more-->
 
 With vibe coding, accuracy becomes crucial. You can’t afford silent errors from the editor.
 
