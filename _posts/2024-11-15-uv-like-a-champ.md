@@ -8,7 +8,7 @@ categories: workflows
 Conda is the Undisputed King of Python Environments. Or Is It?
 
 <!--more-->
-**TLDR - Scroll down to Summary**
+**Scroll down to Summary for a quick TLDR**
 
 Conda is synonymous with Python environment management. Whenever you think of managing Python environments, there's a good chance you think Conda. However, Conda has its issues—a lot of issues, actually:
 
@@ -35,11 +35,11 @@ Just head to [uv install page](https://docs.astral.sh/uv/getting-started/install
 conda create --name myenv python=3.9
 
 # Use UV:
-uv venv --python 3.9
+cd ~
+uv venv --python 3.12
 ```
 
 Instead of installing in a central directory like Conda, UV installs the environment in the `.venv` of the current folder.
-
 
 
 ## Listing Environments
@@ -52,7 +52,6 @@ conda env list
 There is no equivalent command in UV. Since environments are installed locally in each project, managing them is as simple as navigating to your project's `.venv` folder.
 
 
-
 Deactivating Environments
 
 ```
@@ -61,7 +60,6 @@ deactivate
 ```
 
 Deactivating an environment is quite similar to other virtual environment packages like venv
-
 
 
 ## Activating Environments
@@ -89,6 +87,8 @@ alias uva='f() {
     fi
 }; uva'
 ```
+
+In the above alias `source "/home/yeshwanth/.venv/bin/activate";` is sourcing my home environment which acts as a global python. Please change the path to your home directory.
 
 With this alias, you can now activate environments effortlessly:
 
