@@ -25,7 +25,8 @@ UV is the new kid on the block, aiming to simplify and speed up environment mana
 ![](https://github.com/astral-sh/uv/assets/1309177/03aa9163-1c79-4a87-a31d-7a9311ed9310)
 Here's a breakdown of using UV with a few handy aliases to make your workflow efficient.
 
-
+## Installing UV
+Just head to [uv install page](https://docs.astral.sh/uv/getting-started/installation/) and follow the instructions for your operating system.
 
 ## Creating Environments
 
